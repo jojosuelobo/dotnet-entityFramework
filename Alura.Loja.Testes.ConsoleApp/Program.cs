@@ -12,8 +12,28 @@ namespace Alura.Loja.Testes.ConsoleApp
         {
             //GravarUsandoAdoNet();
             //GravarUsandoEntity();
+            //RecuperarProdutos();
+            //ExcluirProduto();
+            //RecuperarProdutos();
+            AtualizarProduto();
+        }
+
+        private static void AtualizarProduto()
+        {
+            // Incluiu
+            GravarUsandoEntity();
             RecuperarProdutos();
-            ExcluirProduto();
+
+            // Atualiza
+            using (var repo = new lojaContext())
+            {
+                Produto primeiro = repo.Produtos.First();
+                primeiro.Nome = "EDITADO";
+                repo.Produtos.Update(primeiro);
+                repo.SaveChanges();
+                
+            }
+                RecuperarProdutos();
         }
 
         private static void ExcluirProduto()
