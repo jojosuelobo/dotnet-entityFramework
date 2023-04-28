@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,14 +11,14 @@ namespace Alura.Loja.Testes.ConsoleApp
     {
         static void Main(string[] args)
         {
-            //GravarUsandoAdoNet();
+            //GravarUsandoAdoNet(); 
             //GravarUsandoEntity();
             //RecuperarProdutos();
             //ExcluirProduto();
             //RecuperarProdutos();
-            AtualizarProduto();
+            //AtualizarProduto();
         }
-
+         
         private static void AtualizarProduto()
         {
             // Incluiu
