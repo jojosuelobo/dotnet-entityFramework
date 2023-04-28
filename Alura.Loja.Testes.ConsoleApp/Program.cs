@@ -25,35 +25,32 @@ namespace Alura.Loja.Testes.ConsoleApp
             RecuperarProdutos();
 
             // Atualiza
-            using (var repo = new lojaContext())
+            using (var repo = new ProdutoDAOEntity())
             {
-                Produto primeiro = repo.Produtos.First();
+                Produto primeiro = repo.Produtos().First();
                 primeiro.Nome = "EDITADO";
-                repo.Produtos.Update(primeiro);
-                repo.SaveChanges();
-                
+                repo.Atualizar(primeiro);
             }
                 RecuperarProdutos();
         }
 
         private static void ExcluirProduto()
         {
-            using (var repo = new lojaContext())
+            using (var repo = new ProdutoDAOEntity())
             {
-                IList<Produto> produtos = repo.Produtos.ToList();
+                IList<Produto> produtos = repo.Produtos();
                 foreach (var item in produtos)
                 {
-                    repo.Produtos.Remove(item);
-                    repo.SaveChanges();
+                    repo.Remover(item);
                 }
             }
         }
 
         private static void RecuperarProdutos()
         {
-            using (var repo = new lojaContext())
+            using (var repo = new ProdutoDAOEntity())
             {
-                IList<Produto> produtos = repo.Produtos.ToList();
+                IList<Produto> produtos = repo.Produtos()  ;
                 foreach (var item in produtos)
                 {
                     Console.WriteLine(item.Nome);
@@ -69,10 +66,9 @@ namespace Alura.Loja.Testes.ConsoleApp
             p.Categoria = "Livros";
             p.Preco = 19.89;
 
-            using (var contexto = new lojaContext())
+            using (var contexto = new ProdutoDAOEntity())
             {
-                contexto.Produtos.Add(p);
-                contexto.SaveChanges();
+                contexto.Adicionar(p);
             }
         }
 
