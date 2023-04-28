@@ -13,7 +13,7 @@ namespace Alura.Loja.Testes.ConsoleApp
         {
             this.contexto = new lojaContext();
         }
-
+        // Funções
         public void Adicionar(Produto p)
         {
             contexto.Produtos.Add(p);
