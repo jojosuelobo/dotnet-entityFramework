@@ -11,14 +11,19 @@ namespace Alura.Loja.Testes.ConsoleApp
     {
         static void Main(string[] args)
         {
-            //GravarUsandoAdoNet(); 
-            //GravarUsandoEntity();
-            //RecuperarProdutos();
-            //ExcluirProduto();
-            //RecuperarProdutos();
-            //AtualizarProduto();
+            // Compra de 6 pães 
+            var paoFrances = new Produto();
+            paoFrances.Nome = "Pão Frances";
+            paoFrances.PrecoUnitario = 0.5;
+            paoFrances.Unidade = "Unidade";
+            paoFrances.Categoria = "Padaria";
+
+            var compra = new Compra();
+            compra.Quantidade = 6;
+            compra.Produto = paoFrances;
+            compra.Preco = paoFrances.PrecoUnitario * compra.Quantidade;
         }
-         
+        /*
         private static void AtualizarProduto()
         {
             // Incluiu
@@ -34,7 +39,6 @@ namespace Alura.Loja.Testes.ConsoleApp
             }
                 RecuperarProdutos();
         }
-
         private static void ExcluirProduto()
         {
             using (var repo = new ProdutoDAOEntity())
@@ -46,7 +50,6 @@ namespace Alura.Loja.Testes.ConsoleApp
                 }
             }
         }
-
         private static void RecuperarProdutos()
         {
             using (var repo = new ProdutoDAOEntity())
@@ -59,7 +62,6 @@ namespace Alura.Loja.Testes.ConsoleApp
                 }
             }
         }
-
         private static void GravarUsandoEntity()
         {
             Produto p = new Produto();
@@ -72,7 +74,6 @@ namespace Alura.Loja.Testes.ConsoleApp
                 contexto.Adicionar(p);
             }
         }
-
         private static void GravarUsandoAdoNet()
         {
             Produto p = new Produto();
@@ -85,5 +86,6 @@ namespace Alura.Loja.Testes.ConsoleApp
                 repo.Adicionar(p);
             }
         }
+        */
     }
 }
